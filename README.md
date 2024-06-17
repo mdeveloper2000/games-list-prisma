@@ -1,0 +1,1 @@
+# A website about game trophies. Built with Node.js, Express, TypeScript, EJS, Bootstrap, MySQL and Prisma ORM

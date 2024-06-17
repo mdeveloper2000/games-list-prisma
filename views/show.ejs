@@ -1,0 +1,55 @@
+<%- include("./partials/header") %>
+
+<div class="container mt-3 w-75">
+    <div class="row">
+        <div class="col-8">
+            <form class="border py-3 px-5 rounded">
+                <input type="hidden" name="id" value="<%= game.id %>" readonly>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" maxlength="50" value="<%=game.title%>" readonly disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Year</label>
+                    <input type="text" class="form-control" name="year" id="year" placeholder="Year of released" maxlength="4" value="<%=game.year%>" readonly disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="multiplayer" class="form-label">Multiplayer</label>
+                    <select class="form-select" name="multiplayer" id="multiplayer" disabled>
+                        <option value="YES" <%= game.multiplayer === "YES" ? "selected" : "" %>>YES</option>
+                        <option value="NO" <%= game.multiplayer === "NO" ? "selected" : "" %>>NO</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="platinum" class="form-label">Platinum</label>
+                    <select class="form-select" name="platinum" id="platinum" disabled>
+                        <option value="YES" <%= game.platinum === "YES" ? "selected" : "" %>>YES</option>
+                        <option value="NO" <%= game.platinum === "NO" ? "selected" : "" %>>NO</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="details" class="form-label">Details</label>
+                    <textarea class="form-control" name="details" id="details" readonly disabled><%=game.details%></textarea>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <a href="/" class="btn btn-danger">
+                        <i class="bi bi-x-circle"></i> Cancel
+                    </a>
+                    <a href="/game/<%=game.id%>" class="btn btn-primary">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                </div>                
+              </form>
+        </div>
+        <div class="col-4 text-center">
+            <div class="text-center border border-primary rounded mb-3 p-1 fs-4">
+                Game Information
+            </div>
+            <i class="bi bi-trophy-fill text-primary" style="font-size: 10rem;"></i>
+        </div>
+    </div>
+</div>
+
+<script src="/js/edit.js"></script>
+    
+<%- include("./partials/footer") %>
